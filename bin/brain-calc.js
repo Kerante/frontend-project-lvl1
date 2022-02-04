@@ -11,24 +11,43 @@ import {
 } from '../src/index.js';
 
 const name = greetings();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
+console.log('What is the result of the expression?');
+
+const mathOperations = ['+', '-', '*'];
 let flag = true;
+let correctAnsw = 0;
 
 /* Запуск игрового цикла */
 for (let i = 0; i < 3; i += 1) {
   /* Получение данных для игры */
-  const randomNum = getRandomInt(50);
+  const num1 = getRandomInt(11);
+  const num2 = getRandomInt(11);
+  const mathOperation = getRandomInt(3);
+
+  /* Рассчет правильного ответа */
+  if (mathOperation === 0) {
+    correctAnsw = num1 + num2;
+  } else if (mathOperation === 1) {
+    correctAnsw = num1 - num2;
+  } else {
+    correctAnsw = num1 * num2;
+  }
   /* Печать игрового ворпоса */
-  console.log('Question: ', randomNum);
+  console.log(
+    'Question: ',
+    num1,
+    ' ',
+    mathOperations[mathOperation],
+    ' ',
+    num2,
+  );
+
   /* Получение ответа пользователя */
   const userAnsw = getUserAnsw();
+
   /* Проверка правильности ответа (оно же - ход игры) */
-  if (randomNum % 2 === 0 && userAnsw !== 'yes') {
-    losing(userAnsw, 'yes', name);
-    flag = false;
-    break;
-  } else if (randomNum % 2 === 1 && userAnsw !== 'no') {
-    losing(userAnsw, 'no', name);
+  if (Number(userAnsw) !== correctAnsw) {
+    losing(userAnsw, correctAnsw, name);
     flag = false;
     break;
   }

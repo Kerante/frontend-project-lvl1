@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 /* eslint-disable import/extensions, no-console */
-import { greetings } from '../src/cli.js';
+import { greetings } from '../src/index.js';
 
-console.log('Welcome to the Brain Games!');
-const name = greetings();
+greetings();
