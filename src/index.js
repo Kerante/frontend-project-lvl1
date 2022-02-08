@@ -18,9 +18,20 @@ export const getUserAnsw = () => {
   return userAnsw;
 };
 
-/* Правильный ответ */
-export const rightAnsw = () => {
+/* Проверка правильности ответа */
+export const stepsResult = (userAnsw, correctAnsw) => {
+  if (Number(userAnsw) !== correctAnsw) {
+    if (
+      (userAnsw === 'yes' && userAnsw === correctAnsw)
+      || (userAnsw === 'no' && userAnsw === correctAnsw)
+    ) {
+      console.log('Correct!');
+      return true;
+    }
+    return false;
+  }
   console.log('Correct!');
+  return true;
 };
 
 /* Проигрыш */
@@ -38,4 +49,19 @@ export const losing = (userAnsw, correctAnsw, name) => {
 /* Выигрыш */
 export const win = (name) => {
   console.log('Congratulations, ', name, '!');
+};
+
+/* НОД */
+export const getGcd = (a, b) => {
+  let num1 = a;
+  let num2 = b;
+  while (num1 !== num2) {
+    if (num1 > num2) {
+      num1 -= num2;
+    } else {
+      num2 -= num1;
+    }
+  }
+  const gcd = num1;
+  return gcd;
 };
