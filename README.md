@@ -18,3 +18,6 @@ https://asciinema.org/a/CubpZVb0DTCt8nfZCHzLb74me
 
 ### asciinema brain-peogression
 https://asciinema.org/a/i2CQZOUDgB7vmIl683itK6peK
+
+### asciinema brain-prime
+https://asciinema.org/a/p83dPmP01dPdpmJwcCWAP4J2V
