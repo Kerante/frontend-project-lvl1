@@ -15,3 +15,6 @@ https://asciinema.org/a/QhthkhOPIf5ILSpNzAkqB3nrY
 
 ### asciinema brain-gcd
 https://asciinema.org/a/CubpZVb0DTCt8nfZCHzLb74me
+
+### asciinema brain-peogression
+https://asciinema.org/a/i2CQZOUDgB7vmIl683itK6peK
