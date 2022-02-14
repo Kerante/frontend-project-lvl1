@@ -1,13 +1,19 @@
 /* eslint-disable import/extensions, no-console */
-import {
-  greetings,
-  getRandomInt,
-  getUserAnsw,
-  stepsResult,
-  losing,
-  win,
-  getPrime,
-} from '../index.js';
+import { greetings, getRandomInt, gameProcess } from '../index.js';
+
+/* Проверка числа на простоту */
+const getPrime = (num) => {
+  if (num === 2) {
+    return true;
+  }
+  const sqrtOfNum = Math.round(Math.sqrt(num), 1);
+  for (let i = 2; i <= sqrtOfNum; i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
 
 /* Печать правил игры */
 const printRules = () => {
@@ -16,30 +22,19 @@ const printRules = () => {
 
 /* Получение данных игры */
 const getData = () => {
-  const randomNum = getRandomInt(50);
-  console.log('Question: ', randomNum);
-  const correctAnsw = getPrime(randomNum) ? 'yes' : 'no';
-  return correctAnsw;
+  const gameData = [[], []];
+  for (let i = 0; i < 3; i += 1) {
+    gameData[0][i] = getRandomInt(49) + 2;
+    gameData[1][i] = getPrime(gameData[0][i]) ? 'yes' : 'no';
+  }
+  return gameData;
 };
 
 /* Процесс игры */
 export const gamePrime = () => {
   const name = greetings();
   printRules();
-  let flag = true;
-  for (let i = 0; i < 3; i += 1) {
-    const correctAnsw = getData();
-    const userAnsw = getUserAnsw();
-    const result = stepsResult(userAnsw, correctAnsw);
-    if (result === false) {
-      losing(userAnsw, correctAnsw, name);
-      flag = false;
-      break;
-    }
-  }
-  if (flag) {
-    win(name);
-  }
+  gameProcess(name, getData());
 };
 
 export default gamePrime;

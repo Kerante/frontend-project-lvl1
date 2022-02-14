@@ -1,13 +1,6 @@
 /* eslint-disable import/extensions, no-console */
 
-import {
-  greetings,
-  getRandomInt,
-  getUserAnsw,
-  stepsResult,
-  losing,
-  win,
-} from '../index.js';
+import { greetings, getRandomInt, gameProcess } from '../index.js';
 
 /* Печать правил игры */
 const printRules = () => {
@@ -16,48 +9,29 @@ const printRules = () => {
 
 /* Получение данных игры */
 const getData = () => {
-  const mathOperations = ['+', '-', '*'];
-  let correctAnsw = 0;
-  const num1 = getRandomInt(11);
-  const num2 = getRandomInt(11);
-  const mathOperation = getRandomInt(3);
-
-  console.log(
-    'Question: ',
-    num1,
-    ' ',
-    mathOperations[mathOperation],
-    ' ',
-    num2,
-  );
-
-  if (mathOperation === 0) {
-    correctAnsw = num1 + num2;
-  } else if (mathOperation === 1) {
-    correctAnsw = num1 - num2;
-  } else {
-    correctAnsw = num1 * num2;
+  const gameData = [[], []];
+  for (let i = 0; i < 3; i += 1) {
+    const num1 = getRandomInt(11);
+    const num2 = getRandomInt(11);
+    const mathOperation = getRandomInt(3);
+    if (mathOperation === 0) {
+      gameData[0][i] = `${num1} + ${num2}`;
+      gameData[1][i] = num1 + num2;
+    } else if (mathOperation === 1) {
+      gameData[0][i] = `${num1} - ${num2}`;
+      gameData[1][i] = num1 - num2;
+    } else {
+      gameData[0][i] = `${num1} * ${num2}`;
+      gameData[1][i] = num1 * num2;
+    }
   }
-  return correctAnsw;
+  return gameData;
 };
 
 export const gameCalc = () => {
   const name = greetings();
   printRules();
-  let flag = true;
-  for (let i = 0; i < 3; i += 1) {
-    const correctAnsw = getData();
-    const userAnsw = getUserAnsw();
-    const result = stepsResult(userAnsw, correctAnsw);
-    if (result === false) {
-      losing(userAnsw, correctAnsw, name);
-      flag = false;
-      break;
-    }
-  }
-  if (flag) {
-    win(name);
-  }
+  gameProcess(name, getData());
 };
 
 export default gameCalc;

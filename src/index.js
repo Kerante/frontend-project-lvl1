@@ -51,31 +51,20 @@ export const win = (name) => {
   console.log('Congratulations, ', name, '!');
 };
 
-/* НОД */
-export const getGcd = (a, b) => {
-  let num1 = a;
-  let num2 = b;
-  while (num1 !== num2) {
-    if (num1 > num2) {
-      num1 -= num2;
-    } else {
-      num2 -= num1;
+/* Процесс игры */
+export const gameProcess = (name, gameData) => {
+  let flag = true;
+  for (let i = 0; i < 3; i += 1) {
+    console.log('Question: ', gameData[0][i]);
+    const userAnsw = getUserAnsw();
+    const result = stepsResult(userAnsw, gameData[1][i]);
+    if (result === false) {
+      losing(userAnsw, gameData[1][i], name);
+      flag = false;
+      break;
     }
   }
-  const gcd = num1;
-  return gcd;
-};
-
-/* Проверка числа на простоту */
-export const getPrime = (num) => {
-  if (num === 2) {
-    return true;
+  if (flag) {
+    win(name);
   }
-  const sqrtOfNum = Math.round(Math.sqrt(num), 1);
-  for (let i = 2; i <= sqrtOfNum; i += 1) {
-    if (num % i === 0) {
-      return false;
-    }
-  }
-  return true;
 };

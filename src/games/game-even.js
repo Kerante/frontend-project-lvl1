@@ -1,12 +1,5 @@
 /* eslint-disable import/extensions, no-console */
-import {
-  greetings,
-  getRandomInt,
-  getUserAnsw,
-  stepsResult,
-  losing,
-  win,
-} from '../index.js';
+import { greetings, getRandomInt, gameProcess } from '../index.js';
 
 /* Печать правил игры */
 const printRules = () => {
@@ -15,36 +8,24 @@ const printRules = () => {
 
 /* Получение данных игры */
 const getData = () => {
-  const randomNum = getRandomInt(50);
-  console.log('Question: ', randomNum);
-  let correctAnsw = '';
-
-  if (randomNum % 2 === 0) {
-    correctAnsw = 'yes';
-  } else {
-    correctAnsw = 'no';
+  const gameData = [[], []];
+  for (let i = 0; i < 3; i += 1) {
+    const randomNum = getRandomInt(50);
+    gameData[0][i] = getRandomInt(50);
+    if (randomNum % 2 === 0) {
+      gameData[1][i] = 'yes';
+    } else {
+      gameData[1][i] = 'no';
+    }
   }
-  return correctAnsw;
+  return gameData;
 };
 
 /* Процесс игры */
 export const gameEven = () => {
   const name = greetings();
   printRules();
-  let flag = true;
-  for (let i = 0; i < 3; i += 1) {
-    const correctAnsw = getData();
-    const userAnsw = getUserAnsw();
-    const result = stepsResult(userAnsw, correctAnsw);
-    if (result === false) {
-      losing(userAnsw, correctAnsw, name);
-      flag = false;
-      break;
-    }
-  }
-  if (flag) {
-    win(name);
-  }
+  gameProcess(name, getData());
 };
 
 export default gameEven;
