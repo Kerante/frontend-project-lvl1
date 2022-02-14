@@ -25,8 +25,8 @@ const printRules = () => {
 const getData = () => {
   const gameData = [[], []];
   for (let i = 0; i < 3; i += 1) {
-    const num1 = getRandomInt(50);
-    const num2 = getRandomInt(50);
+    const num1 = getRandomInt(50) + 1;
+    const num2 = getRandomInt(50) + 1;
     gameData[0][i] = `${num1} ${num2}`;
     gameData[1][i] = getGcd(num1, num2);
   }
