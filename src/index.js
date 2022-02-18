@@ -22,8 +22,8 @@ export const getUserAnsw = () => {
 export const stepsResult = (userAnsw, correctAnsw) => {
   if (Number(userAnsw) !== correctAnsw) {
     if (
-      (userAnsw === 'yes' && userAnsw === correctAnsw) ||
-      (userAnsw === 'no' && userAnsw === correctAnsw)
+      (userAnsw === 'yes' && userAnsw === correctAnsw)
+      || (userAnsw === 'no' && userAnsw === correctAnsw)
     ) {
       console.log('Correct!');
       return true;
@@ -37,18 +37,14 @@ export const stepsResult = (userAnsw, correctAnsw) => {
 /* Проигрыш */
 export const losing = (userAnsw, correctAnsw, name) => {
   console.log(
-    '"',
-    userAnsw,
-    '" is wrong answer ;(. Correct answer was "',
-    correctAnsw,
-    '".'
+    `"${userAnsw}" is wrong answer ;(. Correct answer was "${correctAnsw}".`,
   );
-  console.log("Let's try again, ", name, '!');
+  console.log(`Let's try again ${name}!`);
 };
 
 /* Выигрыш */
 export const win = (name) => {
-  console.log('Congratulations, ', name, '!');
+  console.log(`Congratulations, ${name}!`);
 };
 
 /* Процесс игры */
