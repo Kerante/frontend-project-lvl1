@@ -12,17 +12,17 @@ const getData = () => {
     const progressionStep = getRandomInt(9) + 1;
     const numPosition = getRandomInt(progressionLenght);
     let progressionElem = getRandomInt(50);
-    let progression = '';
+    const progression = [];
     for (let j = 0; j < progressionLenght; j += 1) {
       if (j === numPosition) {
         gameData[1][i] = progressionElem;
-        progression = `${progression} ..`;
+        progression[j] = '..';
       } else {
-        progression = `${progression} ${progressionElem}`;
+        progression[j] = progressionElem;
       }
       progressionElem += progressionStep;
     }
-    gameData[0][i] = progression;
+    gameData[0][i] = progression.join(' ');
   }
   return gameData;
 };
