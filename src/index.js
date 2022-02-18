@@ -39,7 +39,7 @@ export const losing = (userAnsw, correctAnsw, name) => {
   console.log(
     `"${userAnsw}" is wrong answer ;(. Correct answer was "${correctAnsw}".`,
   );
-  console.log(`Let's try again ${name}!`);
+  console.log(`Let's try again, ${name}!`);
 };
 
 /* Выигрыш */
