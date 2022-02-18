@@ -22,8 +22,8 @@ export const getUserAnsw = () => {
 export const stepsResult = (userAnsw, correctAnsw) => {
   if (Number(userAnsw) !== correctAnsw) {
     if (
-      (userAnsw === 'yes' && userAnsw === correctAnsw)
-      || (userAnsw === 'no' && userAnsw === correctAnsw)
+      (userAnsw === 'yes' && userAnsw === correctAnsw) ||
+      (userAnsw === 'no' && userAnsw === correctAnsw)
     ) {
       console.log('Correct!');
       return true;
@@ -41,7 +41,7 @@ export const losing = (userAnsw, correctAnsw, name) => {
     userAnsw,
     '" is wrong answer ;(. Correct answer was "',
     correctAnsw,
-    '".',
+    '".'
   );
   console.log("Let's try again, ", name, '!');
 };
@@ -57,7 +57,7 @@ export const gameProcess = (rules, gameData) => {
   console.log(rules);
   let flag = true;
   for (let i = 0; i < 3; i += 1) {
-    console.log('Question: ', gameData[0][i]);
+    console.log(`Question: ${gameData[0][i]}`);
     const userAnsw = getUserAnsw();
     const result = stepsResult(userAnsw, gameData[1][i]);
     if (result === false) {
