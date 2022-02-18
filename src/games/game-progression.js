@@ -1,10 +1,8 @@
 /* eslint-disable import/extensions, no-console */
-import { greetings, getRandomInt, gameProcess } from '../index.js';
+import { getRandomInt, gameProcess } from '../index.js';
 
 /* Печать правил игры */
-const printRules = () => {
-  console.log('What number is missing in the progression?');
-};
+const printRules = () => 'What number is missing in the progression?';
 
 /* Получение данных игры */
 const getData = () => {
@@ -31,9 +29,7 @@ const getData = () => {
 
 /* Процесс игры */
 export const gameProgression = () => {
-  const name = greetings();
-  printRules();
-  gameProcess(name, getData());
+  gameProcess(printRules(), getData());
 };
 
 export default gameProgression;

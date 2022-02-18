@@ -2,10 +2,10 @@
 import readlineSync from 'readline-sync';
 
 /* Приветствие */
-export const greetings = () => {
+const greetings = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name?: ');
-  console.log('Hello, ', name, '!');
+  console.log(`Hello, ${name}!`);
   return name;
 };
 
@@ -52,7 +52,9 @@ export const win = (name) => {
 };
 
 /* Процесс игры */
-export const gameProcess = (name, gameData) => {
+export const gameProcess = (rules, gameData) => {
+  const name = greetings();
+  console.log(rules);
   let flag = true;
   for (let i = 0; i < 3; i += 1) {
     console.log('Question: ', gameData[0][i]);

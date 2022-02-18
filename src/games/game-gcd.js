@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions, no-console */
-import { greetings, getRandomInt, gameProcess } from '../index.js';
+import { getRandomInt, gameProcess } from '../index.js';
 
 /* НОД */
 const getGcd = (a, b) => {
@@ -17,9 +17,7 @@ const getGcd = (a, b) => {
 };
 
 /* Печать правил игры */
-const printRules = () => {
-  console.log('Find the greatest common divisor of given numbers.');
-};
+const printRules = () => 'Find the greatest common divisor of given numbers.';
 
 /* Получение данных игры */
 const getData = () => {
@@ -35,9 +33,7 @@ const getData = () => {
 
 /* Процесс игры */
 export const gameGcd = () => {
-  const name = greetings();
-  printRules();
-  gameProcess(name, getData());
+  gameProcess(printRules(), getData());
 };
 
 export default gameGcd;

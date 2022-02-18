@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions, no-console */
-import { greetings, getRandomInt, gameProcess } from '../index.js';
+import { getRandomInt, gameProcess } from '../index.js';
 
 /* Проверка числа на простоту */
 const getPrime = (num) => {
@@ -16,9 +16,7 @@ const getPrime = (num) => {
 };
 
 /* Печать правил игры */
-const printRules = () => {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-};
+const printRules = () => 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 /* Получение данных игры */
 const getData = () => {
@@ -32,9 +30,7 @@ const getData = () => {
 
 /* Процесс игры */
 export const gamePrime = () => {
-  const name = greetings();
-  printRules();
-  gameProcess(name, getData());
+  gameProcess(printRules(), getData());
 };
 
 export default gamePrime;

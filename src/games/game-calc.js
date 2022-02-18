@@ -1,11 +1,9 @@
 /* eslint-disable import/extensions, no-console */
 
-import { greetings, getRandomInt, gameProcess } from '../index.js';
+import { getRandomInt, gameProcess } from '../index.js';
 
 /* Печать правил игры */
-const printRules = () => {
-  console.log('What is the result of the expression?');
-};
+const printRules = () => 'What is the result of the expression?';
 
 /* Получение данных игры */
 const getData = () => {
@@ -29,9 +27,7 @@ const getData = () => {
 };
 
 export const gameCalc = () => {
-  const name = greetings();
-  printRules();
-  gameProcess(name, getData());
+  gameProcess(printRules(), getData());
 };
 
 export default gameCalc;
