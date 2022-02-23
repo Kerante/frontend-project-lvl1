@@ -1,28 +1,32 @@
 /* eslint-disable import/extensions, no-console */
-import { getRandomInt, gameProcess } from '../index.js';
+import { roundCount, gameProcess } from '../index.js';
 
 /* Печать правил игры */
 const printRules = () => 'What number is missing in the progression?';
 
 /* Получение данных игры */
 const getData = () => {
-  const gameData = [[], []];
-  for (let i = 0; i < 3; i += 1) {
-    const progressionLenght = getRandomInt(5) + 5;
-    const progressionStep = getRandomInt(9) + 1;
-    const numPosition = getRandomInt(progressionLenght);
-    let progressionElem = getRandomInt(50);
+  const gameData = [];
+  for (let i = 0; i < roundCount(); i += 1) {
+    const progressionLenght = Math.floor(Math.random() * 5) + 5;
+    const progressionStep = Math.floor(Math.random() * 9) + 1;
+    const numPosition = Math.floor(Math.random() * progressionLenght);
+    let progressionElem = Math.floor(Math.random() * 50) + 1;
     const progression = [];
+    let correctAnsw = 0;
     for (let j = 0; j < progressionLenght; j += 1) {
       if (j === numPosition) {
-        gameData[1][i] = progressionElem;
+        correctAnsw = progressionElem;
         progression[j] = '..';
       } else {
         progression[j] = progressionElem;
       }
       progressionElem += progressionStep;
     }
-    gameData[0][i] = progression.join(' ');
+    gameData.push({
+      question: progression.join(' '),
+      correctAnsw,
+    });
   }
   return gameData;
 };

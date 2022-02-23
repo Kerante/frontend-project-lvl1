@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions, no-console */
-import { getRandomInt, gameProcess } from '../index.js';
+import { roundCount, gameProcess } from '../index.js';
 
 /* Проверка числа на простоту */
 const getPrime = (num) => {
@@ -20,10 +20,11 @@ const printRules = () => 'Answer "yes" if given number is prime. Otherwise answe
 
 /* Получение данных игры */
 const getData = () => {
-  const gameData = [[], []];
-  for (let i = 0; i < 3; i += 1) {
-    gameData[0][i] = getRandomInt(49) + 2;
-    gameData[1][i] = getPrime(gameData[0][i]) ? 'yes' : 'no';
+  const gameData = [];
+  for (let i = 0; i < roundCount(); i += 1) {
+    const num = Math.floor(Math.random() * 49) + 2;
+    const correctAnsw = getPrime(num) ? 'yes' : 'no';
+    gameData.push({ question: num, correctAnsw });
   }
   return gameData;
 };
