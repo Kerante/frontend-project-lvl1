@@ -1,6 +1,9 @@
 /* eslint-disable import/extensions, no-console */
 import { roundCount, gameProcess } from '../index.js';
 
+/* Рандом */
+const randomInt = (max) => Math.floor(Math.random() * max);
+
 /* Печать правил игры */
 const printRules = () => 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -8,7 +11,7 @@ const printRules = () => 'Answer "yes" if the number is even, otherwise answer "
 const getData = () => {
   const gameData = [];
   for (let i = 0; i < roundCount(); i += 1) {
-    const num = Math.floor(Math.random() * 50) + 1;
+    const num = randomInt(50) + 1;
     if (num % 2 === 0) {
       gameData.push({ question: num, correctAnsw: 'yes' });
     } else {

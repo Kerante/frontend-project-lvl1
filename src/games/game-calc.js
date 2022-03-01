@@ -1,6 +1,8 @@
 /* eslint-disable import/extensions, no-console */
 
 import { roundCount, gameProcess } from '../index.js';
+/* Рандом */
+const randomInt = (max) => Math.floor(Math.random() * max);
 
 /* Печать правил игры */
 const printRules = () => 'What is the result of the expression?';
@@ -9,9 +11,9 @@ const printRules = () => 'What is the result of the expression?';
 const getData = () => {
   const gameData = [];
   for (let i = 0; i < roundCount(); i += 1) {
-    const num1 = Math.floor(Math.random() * 11);
-    const num2 = Math.floor(Math.random() * 11);
-    const mathOperation = Math.floor(Math.random() * 3);
+    const num1 = randomInt(11);
+    const num2 = randomInt(11);
+    const mathOperation = randomInt(3);
     if (mathOperation === 0) {
       gameData.push({
         question: `${num1} + ${num2}`,
