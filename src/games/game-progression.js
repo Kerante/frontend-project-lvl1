@@ -11,9 +11,9 @@ const printRules = () => 'What number is missing in the progression?';
 const getData = () => {
   const gameData = [];
   for (let i = 0; i < roundCount(); i += 1) {
-    const progressionLenght = randomInt(6) + 5;
-    const progressionStep = randomInt(10) + 1;
-    const numPosition = randomInt(progressionLenght + 1);
+    const progressionLenght = randomInt(5) + 5;
+    const progressionStep = randomInt(9) + 1;
+    const numPosition = randomInt(progressionLenght);
     let progressionElem = randomInt(50) + 1;
     const progression = [];
     let correctAnsw = 0;
