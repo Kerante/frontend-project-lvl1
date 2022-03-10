@@ -1,8 +1,5 @@
 /* eslint-disable import/extensions, no-console */
-import { roundCount, gameProcess } from '../index.js';
-
-/* Рандом */
-const randomInt = (max) => Math.floor(Math.random() * max);
+import { randomInt, roundCount, gameProcess } from '../index.js';
 
 /* Печать правил игры */
 const printRules = () => 'Answer "yes" if the number is even, otherwise answer "no".';

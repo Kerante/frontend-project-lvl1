@@ -1,8 +1,5 @@
 /* eslint-disable import/extensions, no-console */
-import { roundCount, gameProcess } from '../index.js';
-
-/* Рандом */
-const randomInt = (max) => Math.floor(Math.random() * max);
+import { randomInt, roundCount, gameProcess } from '../index.js';
 
 /* Проверка числа на простоту */
 const getPrime = (num) => {

@@ -1,6 +1,9 @@
 /* eslint-disable import/extensions, no-console */
 import readlineSync from 'readline-sync';
 
+/* Рандом */
+export const randomInt = (max) => Math.floor(Math.random() * max);
+
 /* Количество раундов игры */
 export const roundCount = () => 3;
 
